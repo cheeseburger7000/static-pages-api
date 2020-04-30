@@ -13,6 +13,8 @@ This project provides API services for my GitHub Pages.
 - [csvtojson](https://www.npmjs.com/package/csvtojson)
 - [mongoose](https://www.npmjs.com/package/mongoose)
 - [MongoDB Cheat Sheet](https://gist.github.com/bradtraversy/f407d642bdc3b31681bc7e56d95485b6)
+- [cheerio](https://github.com/cheeriojs/cheerio)
+- [Puppeteer](https://github.com/puppeteer/puppeteer)
 
 ## MongoDB Cheat Sheet
 
