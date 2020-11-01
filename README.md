@@ -49,3 +49,12 @@ db.idioms.insert({
 
 db.idioms.find()
 ```
+
+## See also
+
+- [How to build a web crawler with Node](https://blog.logrocket.com/how-to-build-a-web-crawler-with-node/)
+- [How to make a Web crawler using Java?](https://www.programcreek.com/2012/12/how-to-make-a-web-crawler-using-java/)
+- [Express + Node 爬取网站数据](https://blog.csdn.net/sinat_36065456/article/details/81670330)
+- [Java实现微博爬虫的思路](https://blog.csdn.net/qq_31122833/article/details/91570539)
+- [Writing A Web Crawler in Golang](https://edmundmartin.com/writing-a-web-crawler-in-golang/)
+- [Java Web Crawler Libraries - stackoverflow](https://stackoverflow.com/questions/11282503/java-web-crawler-libraries)
