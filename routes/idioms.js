@@ -18,7 +18,8 @@ router.get('/init', async (req, res) => {
         const idioms = await csv({ delimiter: ['|'] }).fromFile(csvFile)
         const result = await Idiom.insertMany(idioms)
         res.json(result)
-    } catch (error) {
+    } 
+    catch (error) {
         console.log(error)
     }
 })
@@ -32,7 +33,8 @@ router.get('/random', async (req, res) => { // 之前的 /count 请求到 /:num 
         const randomUid = Math.floor(Math.random() * idiomCount + 1)
         const idiom = await Idiom.findOne({ uid: randomUid })
         res.json(idiom)
-    } catch (error) {
+    } 
+    catch (error) {
         console.log(error)
     }
 })

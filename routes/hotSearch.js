@@ -21,7 +21,8 @@ router.get('/', async (req, res) => {
             let rank = linkNode.children('strong')
             if (rank.length < 1) {
                 rank = '置顶'
-            } else {
+            } 
+            else {
                 rank = rank.text()
             }
 
@@ -30,7 +31,8 @@ router.get('/', async (req, res) => {
 
         let result = `<ul>${lis.join('')}</ul>`
         res.send(result)
-    } catch (error) {
+    } 
+    catch (error) {
         console.log(error)
     }
 })
@@ -43,25 +45,45 @@ router.get('/v2', async (req, res) => {
         const $ = cheerio.load(data)
         $('.list .list_a li').each(function(i, elm) {
             const linkNode = $(this).children('a')
+            // 链接
             let link = linkNode.attr('href')
             link = `https://s.weibo.com${link}`
-
-            let keyword = linkNode.children('span')
-            keyword = keyword.text().replace(keyword.find('em').text(), '').trim()
-
+            // 关键词
+            let keywordAndHot = linkNode.children('span')
+            let keyword = keywordAndHot.text().replace(keywordAndHot.find('em').text(), '').trim()
+            // 排名
             let rank = linkNode.children('strong')
             if (rank.length < 1) {
                 rank = '置顶'
-            } else {
+            } 
+            else {
                 rank = rank.text()
             }
-
-            list.push({ rank, link, keyword })
+            // 热度
+            let hot = keywordAndHot.find('em').text()
+            // 热 新 荐 level
+            let level = linkNode.children('i').attr('class')
+           
+            list.push({ rank, link, keyword, hot, level })
         })
         res.json(list)
-    } catch (error) {
+    } 
+    catch (error) {
         console.log(error)
     }
 })
+
+// 测试
+// router.get('/none', async (req, res) => {
+//     try {
+//         let list = []
+//         const { data } = await axios.get('https://s.weibo.com/top/summary')
+//         const $ = cheerio.load(data)
+//         res.send($.html())
+//     } 
+//     catch (error) {
+//         console.log(error)
+//     }
+// })
 
 module.exports = router
